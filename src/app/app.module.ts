@@ -10,13 +10,13 @@ import { RegistrationComponent } from './registration/registration.component';
   declarations: [
     AppComponent,
     AuthenticationComponent,
-    RegistrationComponent
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }
