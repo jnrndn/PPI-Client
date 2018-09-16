@@ -1,3 +1,62 @@
-<p>
-  registration works!
-</p>
+<div class='container'>
+  <div class="title">
+    <h2>Register now!</h2>
+    <p>Fill the form below</p>
+  </div>
+  <div class="form">
+    <form method='post'>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="username"
+        >
+      </mat-form-field>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="password"
+        >
+      </mat-form-field>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="confirm password"
+        >
+      </mat-form-field>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="first name"
+        >
+      </mat-form-field>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="last name"
+        >
+      </mat-form-field>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="Email"
+          [formControl]="emailFormControl"
+          [errorStateMatcher]="matcher"
+        >
+        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="emailFormControl.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+      >Submit</button>
+    </form>
+  </div>
+  <br>
+  <div class='title'>
+    <p>Do you have an account? <a routerLink="/auth"><b>Log in</b> here</a>!!</p>
+  </div>
+</div>
