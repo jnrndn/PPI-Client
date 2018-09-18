@@ -1,0 +1,35 @@
+<div class="auth">
+  <div class="title">
+    <h1>
+      <span>Welcome!!</span>
+    </h1>
+    <p>
+      please enter your credentials to log in
+    </p>
+  </div>
+  <div class="form">
+    <form method='post'>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="username"
+        >
+      </mat-form-field>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="password"
+        >
+      </mat-form-field>
+
+      <button
+        mat-raised-button
+        color="primary"
+      >Log in</button>
+    </form>
+  </div>
+  <br>
+  <div class='title'>
+    <p>Don't have an account? <a routerLink="/registration"><b>register</b> now</a>!!</p>
+  </div>
+</div>
