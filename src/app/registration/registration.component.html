@@ -1,0 +1,78 @@
+<div class='container'>
+  <div class="title">
+    <h2>Register now!</h2>
+    <p>Fill the form below</p>
+  </div>
+  <div class="form">
+    <form method='post'>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="username"
+          required
+        >
+      </mat-form-field>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="password"
+          [formControl]="password"
+          required
+        >
+        <mat-error *ngIf="password.hasError('strength')">
+          Weak password
+        </mat-error>
+        <mat-error *ngIf="password.hasError('required')">
+          Password is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="confirm password"
+          [formControl]="confirmPassword"
+          required
+        >
+        <mat-error *ngIf="confirmPassword.hasError('match')">
+          Password doesn't match
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="first name"
+        >
+      </mat-form-field>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="last name"
+        >
+      </mat-form-field>
+      <mat-form-field class="fields-full">
+        <input
+          matInput
+          placeholder="Email"
+          [formControl]="email"
+          [errorStateMatcher]="matcher"
+          required
+        >
+        <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
+          Please enter a valid email address
+        </mat-error>
+        <mat-error *ngIf="email.hasError('required')">
+          Email is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      <button
+        mat-raised-button
+        color="primary"
+      >Submit</button>
+    </form>
+  </div>
+  <br>
+  <div class='title'>
+    <p>Do you have an account? <a routerLink="/auth"><b>Log in</b> here</a>!!</p>
+  </div>
+</div>
