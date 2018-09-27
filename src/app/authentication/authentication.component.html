@@ -8,28 +8,43 @@
     </p>
   </div>
   <div class="form">
-    <form method='post'>
+    <form
+      #logInForm="ngForm"
+      (ngSubmit)="onLogin(logInForm.value)"
+    >
       <mat-form-field class="fields-full">
         <input
+          type="text"
           matInput
           placeholder="username"
+          [(ngModel)]="username"
+          name="username"
+          id="username"
         >
       </mat-form-field>
       <mat-form-field class="fields-full">
         <input
+          type="password"
           matInput
           placeholder="password"
+          [(ngModel)]="password"
+          name="password"
+          id="password"
         >
       </mat-form-field>
 
       <button
         mat-raised-button
         color="primary"
+        type="submit"
       >Log in</button>
     </form>
   </div>
   <br>
   <div class='title'>
     <p>Don't have an account? <a routerLink="/registration"><b>register</b> now</a>!!</p>
+  </div>
+  <div class='title'>
+    <p><a routerLink="/recover">Forgot your password?</a></p>
   </div>
 </div>
