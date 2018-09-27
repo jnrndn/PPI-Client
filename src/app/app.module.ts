@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { MaterialModule } from './material/material.module';
 import { RegistrationComponent } from './registration/registration.component';
+import { RecoverComponent } from './recover/recover.component';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { RegistrationComponent } from './registration/registration.component';
     AppComponent,
     AuthenticationComponent,
     RegistrationComponent,
+    RecoverComponent,
   ],
   imports: [
     BrowserModule,
