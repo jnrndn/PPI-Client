@@ -1,16 +1,14 @@
-.card {
-  top: 60px;
+.recover {
   display: flex;
-  max-width: 320px;;
   flex-direction: column;
+  max-width: 300px;
   margin: auto;
-  justify-content: space-evenly;
 }
 
 .fields-full {
   width: 100%
 }
 
-.send .back {
-  left: 20px;
+button {
+  margin-left: 15px;
 }

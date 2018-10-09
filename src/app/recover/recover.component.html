@@ -1,34 +1,42 @@
-<mat-card class="card">
-  <mat-card-header>
-    <mat-card-title>Recover your password</mat-card-title>
-    <mat-card-subtitle>We will send you the information to recover your password to the email you used to register</mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
+<div class="recover">
+  <h2>Recover your password</h2>
+  <span><b>Remember</b>
+    Your password must contain uppercase, lowercase, numbers, special caracteres and must be 8 characters long </span>
+  <br>
+  <form [formGroup]="recoverForm">
     <mat-form-field class="fields-full">
       <input
         matInput
-        [formControl]="email"
-        placeholder="Email"
+        type="password"
+        placeholder="Password"
+        formControlName="password"
       >
-      <mat-error *ngIf="email.hasError('email') && !email.hasError('required')">
-        Please enter a valid email address
+      <mat-error *ngIf="password.hasError('pattern')">
+        Weak password
       </mat-error>
-      <mat-error *ngIf="email.hasError('required')">
-        Email is <strong>required</strong>
+      <mat-error *ngIf="password.hasError('required')">
+        Password is <strong>required</strong>
       </mat-error>
     </mat-form-field>
-  </mat-card-content>
-  <mat-card-actions>
+    <mat-form-field class="fields-full">
+      <input
+        matInput
+        type="password"
+        placeholder="Confirm password"
+        formControlName="confirmPassword"
+      >
+      <mat-error *ngIf="confirmPassword.hasError('required')">
+        Password is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="recoverForm.hasError('mismatch')">
+        Password doesn't match
+      </mat-error>
+    </mat-form-field>
     <button
-      class="send"
+      [disabled]="!recoverForm.valid"
       mat-raised-button
       color="primary"
-    >Send</button>
-    <button
-      class="back"
-      mat-raised-button
-      color="warn"
-      (click)="goBack($event)"
-    >Back</button>
-  </mat-card-actions>
-</mat-card>
+      (click)="onRecover()"
+    >Submit</button>
+  </form>
+</div>
