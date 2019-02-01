@@ -17,6 +17,7 @@
           type="text"
           matInput
           placeholder="username"
+          required
           [(ngModel)]="username"
           name="username"
           id="username"
@@ -27,6 +28,7 @@
           type="password"
           matInput
           placeholder="password"
+          required
           [(ngModel)]="password"
           name="password"
           id="password"
@@ -34,6 +36,7 @@
       </mat-form-field>
 
       <button
+        [disabled]="!logInForm.valid"
         mat-raised-button
         color="primary"
         type="submit"
@@ -45,6 +48,6 @@
     <p>Don't have an account? <a routerLink="/registration"><b>register</b> now</a>!!</p>
   </div>
   <div class='title'>
-    <p><a routerLink="/recover">Forgot your password?</a></p>
+    <p><a routerLink="/forgot">Forgot your password?</a></p>
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { NgForm } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { Ilogin } from '../interfaces/login.interface';
 
 @Component({
   selector: 'app-authentication',
@@ -11,11 +11,13 @@ export class AuthenticationComponent implements OnInit {
 
   username: string;
   password: string;
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
-  onLogin(formValue) {
+  onLogin(formValue: Ilogin) {
+    console.log(formValue);
+    this.authService.logIn(formValue);
   }
 }
